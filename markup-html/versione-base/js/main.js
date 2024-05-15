@@ -26,4 +26,15 @@ const images = [
 
 // ELEMENTI DALL HTML
 
+const divItems = document.querySelector('.items')
+const prev = document.querySelector('.prev')
+const next = document.querySelector('.next')
 
+images.forEach((element) => {
+    const div = document.createElement('div')
+    const img = document.createElement('img')
+    img.src = images.image
+    img.append(images.image)
+    div.append(img)
+    divItems.append(div)
+});
