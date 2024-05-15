@@ -26,15 +26,44 @@ const images = [
 
 // ELEMENTI DALL HTML
 
-const divItems = document.querySelector('.items')
-const prev = document.querySelector('.prev')
-const next = document.querySelector('.next')
+const divItems = document.querySelector('.items');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+
+let i = 0;
 
 images.forEach((element) => {
-    const div = document.createElement('div')
-    const img = document.createElement('img')
-    img.src = images.image
-    img.append(images.image)
-    div.append(img)
-    divItems.append(div)
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    const h1 = document.createElement('h1');
+    const p = document.createElement('p');
+
+    //TESTO
+    h1.append(element.title);
+    p.append(element.text);
+    //IMMAGINI
+    img.src = element.image;
+    img.append(element.image);
+
+    div.classList.add('item');
+
+    if (i == 0) {
+        div.classList.add('active')
+    }
+
+    div.append(img, h1, p);
+    divItems.append(div);
+
+    i++
 });
+
+let switchImg = 0;
+
+prev.addEventListener('click', () => {
+    if (switchImg > 0 -1) {
+        divItems.classList.remove('active')
+    }
+})
+
+
