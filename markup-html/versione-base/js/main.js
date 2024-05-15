@@ -58,12 +58,31 @@ images.forEach((element) => {
     i++
 });
 
-let switchImg = 0;
+let switchPosition = 0;
+const list = document.querySelectorAll('.item')
 
 prev.addEventListener('click', () => {
-    if (switchImg > 0 -1) {
-        divItems.classList.remove('active')
+    if (switchPosition > 0) {
+        list[switchPosition].classList.remove('active');
+        switchPosition--;
+        list[switchPosition].classList.add('active');
+    } else {
+        list[switchPosition].classList.remove('active');
+        switchPosition = list.length - 1;
+        list[switchPosition].classList.add('active');
     }
 })
 
+
+next.addEventListener('click', () => {
+    if (switchPosition < list.length - 1) {
+        list[switchPosition].classList.remove('active');
+        switchPosition++;
+        list[switchPosition].classList.add('active');
+    } else {
+        list[switchPosition].classList.remove('active');
+        switchPosition = 0;
+        list[switchPosition].classList.add('active');
+    }
+})
 
